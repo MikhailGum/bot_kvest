@@ -37,7 +37,7 @@ def f_nomer_voprosa(message):
 def get_test(message):
     # global nomer_voprosa
     nomer_voprosa = f_nomer_voprosa(message)
-    if nomer_voprosa <=18:
+    if nomer_voprosa <=19:
         cleanedList = [x for x in list(voprosi.loc[nomer_voprosa])[2:] if str(x) != 'nan']
         keyboard_test = types.InlineKeyboardMarkup(); #наша клавиатура
         nomer = 1
@@ -47,7 +47,7 @@ def get_test(message):
             key_test = types.InlineKeyboardButton(text=var, callback_data=callback_text); #кнопка «Get_text»
             keyboard_test.add(key_test);
         bot.send_message(message.chat.id, text=voprosi.loc[nomer_voprosa]['vopros'], reply_markup=keyboard_test)
-    elif nomer_voprosa > 18: #20
+    elif nomer_voprosa > 19: #20
         bot.register_next_step_handler(message, get_result(message))    
     # nomer_voprosa += 1
     # print(message)
